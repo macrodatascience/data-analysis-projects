@@ -45,6 +45,7 @@ Personalized subject lines increase CTR by at least 10%.
 - `results/` → charts
 - `notebooks/` → exploratory analysis
 
+```
 email_ctr_experiment/
 │
 ├── data/                   # simulated datasets
@@ -56,7 +57,7 @@ email_ctr_experiment/
 ├── results/                # charts, tables
 ├── README.md
 └── requirements.txt
-
+```
 ## How to Run
 
 ```bash
