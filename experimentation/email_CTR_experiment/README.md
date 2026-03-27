@@ -1,8 +1,21 @@
 # Email CTR Experiment (A/B Test)
 
 ## Overview
-This project simulates and analyzes an A/B test to evaluate whether
-personalized email subject lines improve click-through rates (CTR).
+
+This project simulates and analyzes a real-world **A/B test** to evaluate whether **personalized email subject lines** improve user engagement.
+
+It is designed to reflect how product and marketing experiments are conducted in practice, including:
+- Hypothesis formulation  
+- Experiment design  
+- Statistical testing  
+- Insight generation  
+
+## Problem Statement
+
+Email campaigns are a key growth channel, but engagement is often low.
+
+**Question:**  
+Does personalizing email subject lines increase click-through rates (CTR)?
 
 ## Install dependencies
 ```
@@ -16,17 +29,21 @@ pip freeze > requirements.txt
 ```
 
 ## Hypothesis
-Personalized subject lines increase CTR by at least 10%.
+Personalized subject lines will increase CTR by at least **10% relative lift** compared to generic subject lines.
 
 ## Experiment Design
-- Population: 10,000 users
-- Control: Generic subject line
-- Treatment: Personalized subject line
-- Metric: Click-through rate (CTR)
 
-## Methodology
+- **Population:** 10,000 users  
+- **Groups:**
+  - Control → Generic subject line  
+  - Treatment → Personalized subject line  
+- **Primary Metric:** Click-through rate (CTR)  
+- **Secondary Analysis:** Segment-level performance  
+
+**Methodology:**
 - Randomized controlled experiment
-- Two-proportion z-test
+- Bernoulli simulation for click behavior  
+- Two-proportion z-test for statistical significance 
 - Segment-level analysis
 
 ## Results
@@ -49,23 +66,29 @@ Personalized subject lines increase CTR by at least 10%.
 email_ctr_experiment/
 │
 ├── data/                   # simulated datasets
-├── notebooks/              # Jupyter notebooks for exploration
+├── notebooks/              # Exploratory analysis in Jupyter notebooks
 ├── src/
-│   ├── simulate_data.py    # scripts to generate synthetic email campaign data
-│   ├── analysis.py         # scripts for experiment analysis
+│   ├── simulate_data.py    # Data generation script to generate synthetic email campaign data
+│   ├── analysis.py         # Statistical testing script for experiment analysis
 │   └── visualization.py    # plotting scripts
-├── results/                # charts, tables
-├── README.md
-└── requirements.txt
+├── results/                # Output visualizations, charts, tables
+├── requirements.txt
+└── README.md
 ```
 ## How to Run
 
 ```bash
-python src/simulate_data.py
-python src/analysis.py
-python src/visualization.py
-```
 
+# 1. Generate data
+python src/simulate_data.py
+
+# 2. Run analysis
+python src/analysis.py
+
+# 3. Generate visualizations
+python src/visualization.py
+
+```
 This project simulates an A/B test on email subject lines to demonstrate **hypothesis testing and experimentation** in a product/marketing context.
 
 **Steps:**
@@ -78,3 +101,62 @@ This project simulates an A/B test on email subject lines to demonstrate **hypot
 - Click-through rate (CTR)
 - Statistical significance (z-test)
 - Lift between control and treatment groups
+
+```
+**Results**
+
+Example output:
+
+- Control CTR: ~10%
+- Treatment CTR: ~12%
+- Absolute Lift: ~1.7%
+- Relative Lift: ~17%
+- Statistical Significance: p < 0.05
+
+**Interpretation:**
+
+- Personalized subject lines significantly improve engagement
+- The observed lift exceeds the target hypothesis
+
+**Segment-Level Insights**
+
+The analysis includes user segmentation:
+
+- Active users
+- Dormant users
+- New users
+
+**Key insight:**
+
+The strongest impact is observed in dormant users, suggesting personalization is particularly effective for re-engagement.
+
+**Key Takeaways**
+
+- Personalization is a high-impact, low-cost optimization lever
+- A/B testing provides a reliable framework for decision-making
+- Segment-level analysis is critical for uncovering hidden effects
+- Statistical significance alone is not enough — business impact matters
+
+**Skills Demonstrated**
+
+- Experiment design and hypothesis testing
+- Statistical inference (z-test)
+- Data simulation and modeling
+- Product and marketing analytics
+- Translating data into actionable insights
+
+**Extensions / Future Work**
+
+- Confidence intervals for CTR lift
+- Power analysis and sample size estimation
+- Bayesian A/B testing approach
+- Multi-variant testing (subject line + send time)
+- Real-world dataset integration
+
+**Why This Project Matters**
+
+This project demonstrates the ability to:
+
+- Think like a product scientist
+- Design and evaluate experiments rigorously
+- Connect statistical results to business decisions
